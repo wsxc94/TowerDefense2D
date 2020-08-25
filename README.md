@@ -1,9 +1,9 @@
 # TowerDefense2D
 타워디펜스
 
-![메인화면](https://user-images.githubusercontent.com/43703023/91193818-842acd00-e732-11ea-8c60-d87b953e6575.PNG)
-![옵션화면](https://user-images.githubusercontent.com/43703023/91193827-87be5400-e732-11ea-9d7b-621db9be7e86.PNG)
-![타워디펜스움짤](https://user-images.githubusercontent.com/43703023/91193810-82610980-e732-11ea-902c-b0a5edb1e076.gif)
+![메인화면](https://user-images.githubusercontent.com/43703023/91195000-9b1def00-e733-11ea-978f-8cd86aa02d94.PNG)
+![플레이](https://user-images.githubusercontent.com/43703023/91195003-9bb68580-e733-11ea-88ab-6f739803f21f.gif)
+![옵션화면](https://user-images.githubusercontent.com/43703023/91195008-9c4f1c00-e733-11ea-9228-41fb13772a24.PNG)
 
 
 
