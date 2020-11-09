@@ -173,7 +173,6 @@ public class Monster : MonoBehaviour {
         if (!debuffs.Exists(x => x.GetType() == debuff.GetType())) 
             //몬스터 타입과 타워의 타입이 같으면 디버프가 들어가지않음
         {
-
             newDebuffs.Add(debuff); 
         }
        
