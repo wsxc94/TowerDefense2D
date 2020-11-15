@@ -5,7 +5,7 @@ using UnityEngine;
 public enum Element {STORM,FIRE,ICE,POISON,NONE }
 public abstract class Tower : MonoBehaviour {
     [SerializeField]
-    private string projectileType=null;  //발사체 타입
+    private string projectileType = null;  //발사체 타입
     [SerializeField]
     private float projectileSpeed = 0;   //발사체 속도
     [SerializeField]
@@ -98,7 +98,6 @@ public abstract class Tower : MonoBehaviour {
     void Update () {
         AttackDelay();
         Attack(); //공격
-        Debug.Log(Target);
 	}
     public void Select() //선택
     {
@@ -124,12 +123,15 @@ public abstract class Tower : MonoBehaviour {
     }
     private void Attack()
     {
-        
+
+        foreach (Monster item in monsters)
+        {
+            Debug.Log(item);
+        }
             if (Target != null && Target.IsActive) //타겟몬스터가 활성화됬을시에
             {
                 if (canAttack)
                 {
-                
                     Shoot(); //타워 공격
 
                     myAnimator.SetTrigger("Attack"); //공격 애니메이션으로 변경
@@ -138,13 +140,13 @@ public abstract class Tower : MonoBehaviour {
                 }
 
             }
-            if ((Target == null && monsters.Count > 0) && monsters.Peek().IsActive) //공격 타겟이 사라지고 , 몬스터카운트가 0보다 크며 몬스터가 픽된경우
+
+            if ((Target == null && monsters.Count > 0)) //공격 타겟이 사라지고 , 몬스터카운트가 0보다 크며 몬스터가 픽된경우
             {
-                Target = monsters.Dequeue(); //몬스터 큐에서 뺌
-                
+                Target = monsters.Dequeue(); //몬스터 큐에서 뺌       
             }
 
-            if ((Target != null && !Target.Alive) || (Target != null && !Target.IsActive))
+            else if ((Target != null && !Target.IsActive))
             {
             //타겟이 죽은경우
            
@@ -152,8 +154,7 @@ public abstract class Tower : MonoBehaviour {
 
             }
 
-        if (monsters.Count != 0 && !monsters.Peek().IsActive) monsters.Dequeue();
-        if (monsters.Count != 0 && monsters.Peek().InRange == false) monsters.Dequeue();
+        if (monsters.Count != 0 && (!monsters.Peek().IsActive || !monsters.Peek().InRange)) monsters.Dequeue();
         
     }
 

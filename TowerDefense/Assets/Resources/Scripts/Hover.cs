@@ -7,14 +7,16 @@ public class Hover : Singleton<Hover> {
     private SpriteRenderer spriteRenderer; 
 
     private SpriteRenderer rangeSpriteRenderer;
+
     public bool IsVisible { get; private set; }
                                        // Use this for initialization
     void Start () {
         //타워 이미지와 타워범위(range) 이미지 컴포넌트 취득
-        this.spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        this.rangeSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-	}
+        rangeSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,5 +52,6 @@ public class Hover : Singleton<Hover> {
         GameManager.Instance.ClickedBtn = null;
 
         IsVisible = false;
+
     }
 }

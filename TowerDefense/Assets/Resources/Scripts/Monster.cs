@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour {
     private List<Debuff> newDebuffs = new List<Debuff>(); //새로운 디버프 리스트
 
     [SerializeField]
-    private Element elementType; //속성 타입
+    private Element elementType = Element.NONE; //속성 타입
 
     private SpriteRenderer spriteRenderer; //이미지렌더러
 

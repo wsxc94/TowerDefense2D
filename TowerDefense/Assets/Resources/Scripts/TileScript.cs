@@ -70,7 +70,7 @@ public class TileScript : MonoBehaviour {
             {
                 ColorTile(fullColor); //빨간색
             }
-           
+
             else if (Input.GetMouseButtonDown(0)) //마우스 왼쪽버튼을 누르면
             {
                 PlaceTower(); //타워 설치 
@@ -78,6 +78,7 @@ public class TileScript : MonoBehaviour {
         }
         else if(!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn == null && Input.GetMouseButtonDown(0))
         { // 위에꺼 반대 자신이 설치한 타워
+
             if (myTower != null) 
             {
                 GameManager.Instance.SelectTower(myTower);
@@ -105,6 +106,7 @@ public class TileScript : MonoBehaviour {
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
         //타워를 타일의 자식으로 만듬
         tower.transform.SetParent(transform);
+
         this.myTower = tower.transform.GetChild(0).GetComponent<Tower>();
         //타일이 비어있지않음 설정
         IsEmpty = false;
@@ -117,7 +119,7 @@ public class TileScript : MonoBehaviour {
 
         WalkAble = false;
     }
-    private void ColorTile(Color newColor) //타일 색깔 설정
+    public void ColorTile(Color newColor) //타일 색깔 설정
     {
         spriteRenderer.color = newColor;
     }

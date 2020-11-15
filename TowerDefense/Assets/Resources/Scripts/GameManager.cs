@@ -161,15 +161,14 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     }
     private void HandlerEscape() // 타워를 고르고 esc를 누르면 해제됨
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // 키코드 esc를 누르면
-        {            
-
-            if (selectTower == null && !Hover.Instance.IsVisible) //타워를 선택중이 아니며 타워 이미지가 선택중이지 않으면
-            {
-                ShowIngameMenu(); //일시정지 메뉴를 불러옴
-            }
-            
-            else if (Hover.Instance.IsVisible) // 타워이미지가 있을때는
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Hover.Instance.Deactivate();  // 타워 선택을 안했을때로 돌아감
+            ShowIngameMenu(); //일시정지 메뉴를 불러옴
+        }
+        if (Input.GetMouseButtonDown(1)) // 오른쪽마우스 클릭시
+        {                       
+            if (Hover.Instance.IsVisible) // 타워이미지가 있을때는
             {
                 DropTower(); //타워선택 취소
             }
@@ -177,6 +176,7 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
             {
                 DeselectTower(); //타워 선택 취소
             }
+            
         }
     }
     public void StartWave() //웨이브 시작함수
