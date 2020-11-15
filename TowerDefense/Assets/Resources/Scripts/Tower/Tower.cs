@@ -31,16 +31,8 @@ public abstract class Tower : MonoBehaviour {
 
     private SpriteRenderer mySpriteRenderer; //이미지 렌더러
 
-    private Monster target;
-    
     public Monster Target //공격하는 타겟 프로퍼티
-    {
-        get
-        {
-            return target;
-        }
-
-    }
+    { get; private set; }
 
     public float DebuffDuration  //디버프 지속시간 프로퍼티
     {
@@ -106,6 +98,7 @@ public abstract class Tower : MonoBehaviour {
     void Update () {
         AttackDelay();
         Attack(); //공격
+        Debug.Log(Target);
 	}
     public void Select() //선택
     {
@@ -132,7 +125,7 @@ public abstract class Tower : MonoBehaviour {
     private void Attack()
     {
         
-            if (this.target != null && this.target.IsActive) //타겟몬스터가 활성화됬을시에
+            if (Target != null && Target.IsActive) //타겟몬스터가 활성화됬을시에
             {
                 if (canAttack)
                 {
@@ -145,21 +138,22 @@ public abstract class Tower : MonoBehaviour {
                 }
 
             }
-            else if ((this.target == null && monsters.Count > 0) && monsters.Peek().IsActive) //공격 타겟이 사라지고 , 몬스터카운트가 0보다 크며 몬스터가 픽된경우
+            if ((Target == null && monsters.Count > 0) && monsters.Peek().IsActive) //공격 타겟이 사라지고 , 몬스터카운트가 0보다 크며 몬스터가 픽된경우
             {
-            
-                this.target = monsters.Dequeue(); //몬스터 큐에서 뺌
+                Target = monsters.Dequeue(); //몬스터 큐에서 뺌
                 
-             
             }
 
-            if ((this.target != null && !this.target.Alive) || (this.target != null && !this.target.IsActive))
+            if ((Target != null && !Target.Alive) || (Target != null && !Target.IsActive))
             {
             //타겟이 죽은경우
            
-                this.target = null;
+                Target = null;
 
             }
+
+        if (monsters.Count != 0 && !monsters.Peek().IsActive) monsters.Dequeue();
+        if (monsters.Count != 0 && monsters.Peek().InRange == false) monsters.Dequeue();
         
     }
 
@@ -200,8 +194,8 @@ public abstract class Tower : MonoBehaviour {
     {
         if (other.tag == "Monster")
         {
-           
-               this.monsters.Enqueue(other.GetComponent<Monster>());
+            other.GetComponent<Monster>().InRange = true;
+            monsters.Enqueue(other.GetComponent<Monster>());
            
         }
     }
@@ -210,9 +204,8 @@ public abstract class Tower : MonoBehaviour {
     {
         if (other.tag == "Monster")
         {
- 
-            this.target = null;
-           
+            other.GetComponent<Monster>().InRange = false;
+            Target = null; 
         }
     }
 

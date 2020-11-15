@@ -34,6 +34,7 @@ public class Monster : MonoBehaviour {
             return health.CurrentValue > 0;
         }
     }
+    public bool InRange { get; set; }
 
     public Point GridPosition { get; set; } //좌표
   
@@ -85,8 +86,9 @@ public class Monster : MonoBehaviour {
         this.health.CurrentValue = this.health.MaxVal;
         //몬스터 스케일업 코루틴 실행
         StartCoroutine(Scale(new Vector3(0.1f, 0.1f), new Vector3(1, 1), false, 0f));
+        IsActive = true;
 
-       // SetPath(LevelManager.Instance.Path); //몬스터 경로설정
+        // SetPath(LevelManager.Instance.Path); //몬스터 경로설정
     }
     public IEnumerator Scale(Vector3 from , Vector3 to, bool remove,float progress) 
         //몬스터 스폰 스케일업 효과
@@ -102,7 +104,6 @@ public class Monster : MonoBehaviour {
         }
         transform.localScale = to;
         speed = MaxSpeed;
-        IsActive = true;
 
         if (remove) //삭제
         {
