@@ -124,10 +124,6 @@ public abstract class Tower : MonoBehaviour {
     private void Attack()
     {
 
-        foreach (Monster item in monsters)
-        {
-            Debug.Log(item);
-        }
             if (Target != null && Target.IsActive) //타겟몬스터가 활성화됬을시에
             {
                 if (canAttack)
