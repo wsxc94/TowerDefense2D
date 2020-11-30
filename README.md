@@ -1,5 +1,5 @@
 # TowerDefense2D
-타워디펜스
+유니티 2D 타워디펜스
 
 ![메인화면](https://user-images.githubusercontent.com/43703023/91195000-9b1def00-e733-11ea-978f-8cd86aa02d94.PNG)
 ![플레이](https://user-images.githubusercontent.com/43703023/91195003-9bb68580-e733-11ea-88ab-6f739803f21f.gif)
