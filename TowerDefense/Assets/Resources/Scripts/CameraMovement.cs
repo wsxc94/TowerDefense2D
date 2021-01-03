@@ -19,6 +19,7 @@ public class CameraMovement : MonoBehaviour {
 	}
     private void GetInput()  //방향에 맞춰 이동
     {
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.up * cameraSpeed * Time.deltaTime);
@@ -35,6 +36,7 @@ public class CameraMovement : MonoBehaviour {
         {
             transform.Translate(Vector3.down * cameraSpeed * Time.deltaTime);
         }
+
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0, xMax), Mathf.Clamp(transform.position.y, 0, yMin),-10);
     }
     public void SetLimits(Vector3 maxTile)
