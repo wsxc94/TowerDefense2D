@@ -37,9 +37,9 @@ public class IceTower : Tower //얼음 타워
     {
         if (NextUpgrade != null)
         {
-            return string.Format("<color=#00ffffff>{0}</color>{1} \n둔화율: {2}% <color=#00ff00ff>+{3}</color>", "<size=15>얼음타워</size>", base.GetStats(), SlowingFactor, NextUpgrade.SlowingFactor);
+            return string.Format("<color=#00ffffff>{0}</color>{1} \n둔화율: {2}% <color=#00ff00ff>+{3}</color>", "<size=1>얼음타워</size>", base.GetStats(), SlowingFactor, NextUpgrade.SlowingFactor);
         }
-        return string.Format("<color=#00ffffff>{0}</color>{1} \n둔화율: {2}%", "<size=15>얼음타워</size>", base.GetStats(), SlowingFactor);
+        return string.Format("<color=#00ffffff>{0}</color>{1} \n둔화율: {2}%", "<size=1>얼음타워</size>", base.GetStats(), SlowingFactor);
     }
     public override void Upgrade() //업그레이드 적용
     {

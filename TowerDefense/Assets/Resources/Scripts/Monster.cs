@@ -72,8 +72,7 @@ public class Monster : MonoBehaviour {
     }
     private void Update() //프레임마다 업데이트
     {
-        HandleDebuffs(); //디버프 적용
-        
+        HandleDebuffs(); //디버프 적용      
     }
 
     public void Spawn(int health) //몬스터 스폰

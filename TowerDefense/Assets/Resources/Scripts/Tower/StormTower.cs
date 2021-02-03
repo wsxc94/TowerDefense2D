@@ -24,7 +24,7 @@ public class StormTower : Tower    //번개 타워
     public override string GetStats() //타워 스텟
     {
 
-        return string.Format("<color=#add8e6ff>{0}</color>{1}", "<size=15>번개타워</size>", base.GetStats());
+        return string.Format("<color=#add8e6ff>{0}</color>{1}", "<size=1>번개타워</size>", base.GetStats());
         
     }
 }

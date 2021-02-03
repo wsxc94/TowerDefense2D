@@ -124,33 +124,34 @@ public abstract class Tower : MonoBehaviour {
     private void Attack()
     {
 
-            if (Target != null && Target.IsActive) //타겟몬스터가 활성화됬을시에
-            {
-                if (canAttack)
-                {
-                    Shoot(); //타워 공격
-
-                    myAnimator.SetTrigger("Attack"); //공격 애니메이션으로 변경
-
-                    canAttack = false;
-                }
-
-            }
-
-            if ((Target == null && monsters.Count > 0)) //공격 타겟이 사라지고 , 몬스터카운트가 0보다 크며 몬스터가 픽된경우
-            {
-                Target = monsters.Dequeue(); //몬스터 큐에서 뺌       
-            }
-
-            else if ((Target != null && !Target.IsActive))
-            {
-            //타겟이 죽은경우
-           
-                Target = null;
-
-            }
-
         if (monsters.Count != 0 && (!monsters.Peek().IsActive || !monsters.Peek().InRange)) monsters.Dequeue();
+
+        if (Target != null && Target.IsActive) //타겟몬스터가 활성화됬을시에
+        {
+            if (canAttack)
+            {
+                Shoot(); //타워 공격
+
+                myAnimator.SetTrigger("Attack"); //공격 애니메이션으로 변경
+
+                canAttack = false;
+            }
+
+        }
+
+        if ((Target == null && monsters.Count > 0)) //공격 타겟이 사라지고 , 몬스터카운트가 0보다 크며 몬스터가 픽된경우
+        {
+            Target = monsters.Dequeue(); //몬스터 큐에서 뺌       
+        }
+
+        else if ((Target != null && !Target.IsActive))
+        {
+        //타겟이 죽은경우
+        
+            Target = null;
+
+        }
+
         
     }
 
@@ -192,8 +193,7 @@ public abstract class Tower : MonoBehaviour {
         if (other.tag == "Monster")
         {
             other.GetComponent<Monster>().InRange = true;
-            monsters.Enqueue(other.GetComponent<Monster>());
-           
+            monsters.Enqueue(other.GetComponent<Monster>());       
         }
     }
    

@@ -52,9 +52,9 @@ public class PoisonTower : Tower     //독타워
     {
         if (NextUpgrade != null)
         {
-            return string.Format("<color=#00ff00ff>{0}</color>{1}\n표식데미지: {2}<color=#00ff00ff>+{4}</color>", "<size=15>독타워</size>", base.GetStats(), SplashDamage, NextUpgrade.TickTime, NextUpgrade.SpecialDamage);
+            return string.Format("<color=#00ff00ff>{0}</color>{1}\n표식데미지: {2}<color=#00ff00ff>+{4}</color>", "<size=1>독타워</size>", base.GetStats(), SplashDamage, NextUpgrade.TickTime, NextUpgrade.SpecialDamage);
         }
-        return string.Format("<color=00ff00ff>{0}</color>{1}\n표식데미지: {2}", "<size=15>독타워</size>", base.GetStats(), Damage ,SplashDamage);
+        return string.Format("<color=00ff00ff>{0}</color>{1}\n표식데미지: {2}", "<size=1>독타워</size>", base.GetStats(), Damage ,SplashDamage);
     }
     public override void Upgrade() //업그레이드
     {

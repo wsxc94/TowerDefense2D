@@ -50,9 +50,9 @@ public class FireTower : Tower {
     {
         if (NextUpgrade != null)
         {
-            return string.Format("<color=#ffa500ff>{0}</color>{1}\n데미지 간격: {2}초<color=#00ff00ff>-{4}</color>\n도트데미지: {3} <color=#00ff00ff>+{5}</color>", "<size=15>불타워</size> ", base.GetStats(), TickTime, TickDamage, NextUpgrade.TickTime, NextUpgrade.SpecialDamage);
+            return string.Format("<color=#ffa500ff>{0}</color>{1}\n데미지 간격: {2}초<color=#00ff00ff>-{4}</color>\n도트데미지: {3} <color=#00ff00ff>+{5}</color>", "<size=1>불타워</size> ", base.GetStats(), TickTime, TickDamage, NextUpgrade.TickTime, NextUpgrade.SpecialDamage);
         }
-        return string.Format("<color=#ffa500ff>{0}</color>{1}\n데미지 간격: {2}초\n지속데미지: {3}", "<size=15>불타워</size> ", base.GetStats(), TickTime, TickDamage);
+        return string.Format("<color=#ffa500ff>{0}</color>{1}\n데미지 간격: {2}초\n지속데미지: {3}", "<size=1>불타워</size> ", base.GetStats(), TickTime, TickDamage);
     }
     public override void Upgrade() //업그레이드 적용
     {
