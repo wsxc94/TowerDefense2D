@@ -8,12 +8,13 @@
 - 타워 설치 및 판매 그리고 업그레이드로 웨이브내의 몬스터들을 처치하여 많은 점수를 얻는다.
 - 생명이 0이 되면 게임 오버가 되며 아이디 입력 및 랭킹 확인 가능
 ---
-![시작](https://user-images.githubusercontent.com/43703023/107147466-a1c2ba80-6991-11eb-8b19-0a95d3c66891.PNG)
+![시작](https://user-images.githubusercontent.com/43703023/107147664-92903c80-6992-11eb-84d0-ad1d6bb61526.PNG)
 ![플레이](https://user-images.githubusercontent.com/43703023/91195003-9bb68580-e733-11ea-88ab-6f739803f21f.gif)
 ![옵션화면](https://user-images.githubusercontent.com/43703023/91195008-9c4f1c00-e733-11ea-9228-41fb13772a24.PNG)
-![gameover](https://user-images.githubusercontent.com/43703023/107147469-a4251480-6991-11eb-97ee-098f223263d0.PNG)
-![id](https://user-images.githubusercontent.com/43703023/107147470-a4bdab00-6991-11eb-97c6-6769e5658614.PNG)
-![rank](https://user-images.githubusercontent.com/43703023/107147472-a5eed800-6991-11eb-8f7f-6c8ca140667f.PNG)
+![gameover](https://user-images.githubusercontent.com/43703023/107147661-915f0f80-6992-11eb-9104-9cc05a8de7ac.PNG)
+![id](https://user-images.githubusercontent.com/43703023/107147662-91f7a600-6992-11eb-8667-888b2f1636ce.PNG)
+![rank](https://user-images.githubusercontent.com/43703023/107147663-92903c80-6992-11eb-8ad4-112b6aa32a9c.PNG)
+
 
 # 다운로드 및 사용법
 ---
