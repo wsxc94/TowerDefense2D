@@ -7,8 +7,10 @@ using System.IO;
 using UnityEngine.Networking;
 using System;
 
-public class DataBaseConnect : MonoBehaviour
+public class DataBaseManager : Singleton<DataBaseManager>
 {
+    private string query = "Select * From Ranking"; public string Query { get { return query; } }
+
     private void Awake()
     {
         StartCoroutine(DBCreate());
@@ -97,6 +99,19 @@ public class DataBaseConnect : MonoBehaviour
         }
         Debug.Log("DB 생성");
         DBConnectionCheck();
-        DataRead("Select * From Ranking");
+    }
+    public void DataInsert(string query)
+    {
+        IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
+        dbConnection.Open();
+        IDbCommand dbCommand = dbConnection.CreateCommand();
+
+        dbCommand.CommandText = query;
+        dbCommand.ExecuteNonQuery();
+
+        dbCommand.Dispose();
+        dbCommand = null;
+        dbConnection.Close();
+        dbConnection = null;
     }
 }

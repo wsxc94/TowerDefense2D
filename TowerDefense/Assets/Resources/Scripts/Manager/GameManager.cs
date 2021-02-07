@@ -36,6 +36,9 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     [SerializeField]
     private GameObject gameOverMenu=null; //게임 오버 메뉴
     [SerializeField]
+    private GameObject idInputMenu = null; // 아이디 입력메뉴
+
+    [SerializeField]
     private GameObject upgradePanel=null; //타워 업그레이드 UI 패널
     [SerializeField]
     private GameObject statsPanel=null; //타워 스텟 UI 패널
@@ -56,6 +59,8 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     private GameObject OptionMenu=null; //옵션메뉴 오브젝트
 
     public List<Monster> activeMonsters = new List<Monster>(); //몬스터 리스트
+
+    [SerializeField] InputField inputID; // 아이디 입력 인풋필드
 
     public int Currency //유저 돈 프로퍼티
     {
@@ -340,5 +345,23 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     {
         inGameMenu.SetActive(true);
         OptionMenu.SetActive(false);
+    }
+    public void ShowRankIdInputMenu()
+    {
+        gameOverMenu.SetActive(false);
+        idInputMenu.SetActive(true);
+    }
+
+    public void ClickID()
+    {
+        if (inputID.text.Equals(string.Empty))
+        {
+            Debug.Log("빈칸은 안됨");
+            return;
+        }
+        string name = "\"" + inputID.text + "\"";
+        Debug.Log("Insert Into Ranking(RANK, USERNAME, SCORE) VALUES(0, " + name + ", " + wave.ToString() + ")");
+        DataBaseManager.instance.DataInsert("Insert Into Ranking(RANK, USERNAME, SCORE) VALUES(0, " + name + ", " + wave.ToString() + ")");
+
     }
 }
