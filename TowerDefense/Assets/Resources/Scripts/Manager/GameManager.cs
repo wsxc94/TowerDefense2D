@@ -53,6 +53,8 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     private Tower selectTower; //타워 셀렉
 
     public ObjectPool Pool { get; set; } // 오브젝트풀 프로퍼티
+    public DataBaseManager DataBase { get; set; } // 데이터베이스 프로퍼티
+
     [SerializeField]
     private GameObject inGameMenu=null; //인게임메뉴 오브젝트
     [SerializeField]
@@ -61,6 +63,7 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     public List<Monster> activeMonsters = new List<Monster>(); //몬스터 리스트
 
     [SerializeField] InputField inputID; // 아이디 입력 인풋필드
+    [SerializeField] GameObject scoreTable; // 랭킹 테이블
 
     public int Currency //유저 돈 프로퍼티
     {
@@ -105,6 +108,9 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     private void Awake() // 게임 시작전 1번 호출되는 유니티엔진 기본함수
     {
         Pool = GetComponent<ObjectPool>();
+        DataBase = GetComponent<DataBaseManager>();
+
+
     }
     // Use this for initialization
     void Start() // 게임 시작후 1번 호출되는 유니티엔진 기본함수
@@ -284,7 +290,6 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
     public void SetTooltipText(string txt) //툴팁텍스트 세팅
     {
         statText.text = txt;
-
     }
     public void UpdateUpgradeTip()  //타워 판매,업그레이드 툴팁 UI
     {
@@ -359,9 +364,11 @@ public class GameManager : Singleton<GameManager> //게임매니저 싱글턴 �
             Debug.Log("빈칸은 안됨");
             return;
         }
-        string name = "\"" + inputID.text + "\"";
+        string name = "'" + inputID.text + "'";
         Debug.Log("Insert Into Ranking(RANK, USERNAME, SCORE) VALUES(0, " + name + ", " + wave.ToString() + ")");
-        DataBaseManager.instance.DataInsert("Insert Into Ranking(RANK, USERNAME, SCORE) VALUES(0, " + name + ", " + wave.ToString() + ")");
+        DataBase.DataInsert(new Item(0, inputID.text, wave));
+
+        scoreTable.SetActive(true);
 
     }
 }

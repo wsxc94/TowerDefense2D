@@ -70,6 +70,10 @@ public class Monster : MonoBehaviour {
         MaxSpeed = speed;
         health.Initialize();
     }
+    private void OnEnable()
+    {
+        spriteRenderer.sortingOrder = 0;
+    }
     private void Update() //프레임마다 업데이트
     {
         HandleDebuffs(); //디버프 적용      

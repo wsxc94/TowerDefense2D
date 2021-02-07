@@ -7,9 +7,23 @@ using System.IO;
 using UnityEngine.Networking;
 using System;
 
-public class DataBaseManager : Singleton<DataBaseManager>
+public class Item
+{
+    public int rank;
+    public string name;
+    public int score;
+    public Item(int r , string n, int s)
+    {
+        rank = r;
+        name = n;
+        score = s;
+    }
+}
+
+public class DataBaseManager : MonoBehaviour
 {
     private string query = "Select * From Ranking"; public string Query { get { return query; } }
+    List<Item> rankData = new List<Item>(); public List<Item> RankData { get { return rankData; } }
 
     private void Awake()
     {
@@ -45,9 +59,13 @@ public class DataBaseManager : Singleton<DataBaseManager>
         IDbCommand dbCommand = dbConnection.CreateCommand();
         dbCommand.CommandText = query; // 쿼리 입력
         IDataReader dataReader = dbCommand.ExecuteReader(); // 쿼리 실행
+
+        rankData.Clear();
+
         while (dataReader.Read()) // 들어온 레코드 읽기
         {
-            Debug.Log(dataReader.GetInt32(0) + " , " + dataReader.GetString(1) + " , " + dataReader.GetInt32(2));
+            rankData.Add(new Item(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2)));
+            //Debug.Log(dataReader.GetInt32(0) + " , " + dataReader.GetString(1) + " , " + dataReader.GetInt32(2));
             //0 - 1 - 2 번 필드 읽기
         }
         dataReader.Dispose(); // 생성순서와 반대로 닫아줌
@@ -100,12 +118,17 @@ public class DataBaseManager : Singleton<DataBaseManager>
         Debug.Log("DB 생성");
         DBConnectionCheck();
     }
-    public void DataInsert(string query)
+
+    public void DataInsert(Item item)
     {
         IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
         dbConnection.Open();
         IDbCommand dbCommand = dbConnection.CreateCommand();
 
+        string name = "\"" + item.name +"\"";
+        string score = item.score.ToString();
+
+        string query = "INSERT INTO Ranking(RANK, USERNAME, SCORE) VALUES (0, " + name + ", " + score + ")";
         dbCommand.CommandText = query;
         dbCommand.ExecuteNonQuery();
 
