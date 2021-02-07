@@ -11,6 +11,7 @@
 ![시작](https://user-images.githubusercontent.com/43703023/107147664-92903c80-6992-11eb-84d0-ad1d6bb61526.PNG)
 ![플레이](https://user-images.githubusercontent.com/43703023/91195003-9bb68580-e733-11ea-88ab-6f739803f21f.gif)
 ![옵션화면](https://user-images.githubusercontent.com/43703023/91195008-9c4f1c00-e733-11ea-9228-41fb13772a24.PNG)
+
 ![gameover](https://user-images.githubusercontent.com/43703023/107147661-915f0f80-6992-11eb-9104-9cc05a8de7ac.PNG)
 ![id](https://user-images.githubusercontent.com/43703023/107147662-91f7a600-6992-11eb-8667-888b2f1636ce.PNG)
 ![rank](https://user-images.githubusercontent.com/43703023/107147663-92903c80-6992-11eb-8ad4-112b6aa32a9c.PNG)
