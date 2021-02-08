@@ -25,6 +25,6 @@
 
 # 개발 환경
 ---
-* Unity 2019.3.15f1 (64-bit)
+* Unity 2019.4.16f1 (64-bit)
 * Visual Studio 2017
 * SQL LITE (DataBase)
