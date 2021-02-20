@@ -16,6 +16,13 @@
 ![id](https://user-images.githubusercontent.com/43703023/107147662-91f7a600-6992-11eb-8667-888b2f1636ce.PNG)
 ![rank](https://user-images.githubusercontent.com/43703023/107147663-92903c80-6992-11eb-8ad4-112b6aa32a9c.PNG)
 
+# 사용 기술
+---
+오브젝트 풀링을 사용해 풀링 오브젝트 관리
+싱글톤으로 매니저관리
+몬스터 - 추상화, List를 통한 디버프 관리
+타워 - 추상화, Queue를 이용한 몬스터 공격 순서 관리
+SQL DataBase를 이용한 랭킹 시스템
 
 # 다운로드 및 사용법
 ---
